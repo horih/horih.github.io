@@ -1,7 +1,6 @@
 import { Paper, Text, Title, Button } from '@mantine/core';
 import classes from './ArticleCard.module.css';
 
-
 interface CardProps {
     image: string;
     title: string;

@@ -3,42 +3,40 @@ import {
     IconMan,
     IconHome,
 } from '@tabler/icons-react';
-
+// eslint-disable-next-line max-len
+import { Container, Title, Text, Stack, Paper, Divider, ScrollArea, SimpleGrid, Space, Anchor }
+    from '@mantine/core';
 import DemoTabs from './DemoTabs';
 import ArticleCard from './ArticleCard';
-import { Container, Title, Text, Stack, Paper, Divider, ScrollArea, SimpleGrid, useMantineTheme, Space, Anchor }
-    from '@mantine/core';
-import { useMediaQuery } from '@mantine/hooks';
-
-
 
 function Home() {
     return (<>
         <Container size="responsive">
             <Stack>
                 <Paper shadow="xs" radius="xl" withBorder p="xl" style={{ width: '100%' }}>
-                    <Space h='xl'></Space>
+                    <Space h="xl" />
                     <Title order={1} style={{ textAlign: 'center' }}>Welcome To My Page</Title>
-                    <Space h='xl'></Space>
+                    <Space h="xl" />
                 </Paper>
-                <Paper shadow="xs" radius="xl" withBorder p="xl" >
+                <Paper shadow="xs" radius="xl" withBorder p="xl">
                     <Title order={2} style={{ textAlign: 'center' }}>Others...</Title>
                     <Divider my="sm" />
                     <Anchor href="https://github.com/horih" target="_blank">
-                        <i className="devicon-github-original colored" style={{ fontSize: '80px' }}></i>
+                        <i className="devicon-github-original colored" style={{ fontSize: '80px' }} />
                     </Anchor>
                 </Paper>
             </Stack>
-        </Container >
-    </>);
+        </Container>
+            </>
+    );
 }
 
 function AboutMe() {
     return (<>
         <Container size="responsive">
-            <ScrollArea.Autosize offsetScrollbars mah='600' maw='auto' mx="auto">
+            <ScrollArea.Autosize offsetScrollbars mah="600" maw="auto" mx="auto">
                 <Stack>
-                    <Paper shadow="xs" radius="xl" withBorder p="xl" >
+                    <Paper shadow="xs" radius="xl" withBorder p="xl">
                         <Title order={2} style={{ textAlign: 'center' }}>Affication</Title>
                         <Divider my="sm" />
                         <Title order={3}>University</Title>
@@ -50,7 +48,7 @@ function AboutMe() {
                         <Title order={3}>Labolatory</Title>
                         <Text size="xl" style={{ textAlign: 'right' }}>not yet determined</Text>
                     </Paper>
-                    <Paper shadow="xs" radius="xl" withBorder p="xl" >
+                    <Paper shadow="xs" radius="xl" withBorder p="xl">
                         <Title order={2} style={{ textAlign: 'center' }}>Skills Acquired</Title>
                         <Divider my="sm" />
                         <Title order={3}>TOEIC Listening&Reading IP</Title>
@@ -58,7 +56,7 @@ function AboutMe() {
                         <Title order={3}>EIKEN Grade 2</Title>
                         <Text size="xl" style={{ textAlign: 'right' }}>Passed</Text>
                     </Paper>
-                    <Paper shadow="xs" radius="xl" withBorder p="xl" >
+                    <Paper shadow="xs" radius="xl" withBorder p="xl">
                         <Title order={2} style={{ textAlign: 'center' }}>Achievements</Title>
                         <Divider my="sm" />
                         <Title order={3}>NHK学生ロボコン2022</Title>
@@ -71,7 +69,7 @@ function AboutMe() {
                 </Stack>
             </ScrollArea.Autosize>
         </Container>
-    </>);
+            </>);
 }
 
 function ArticleCards() {
@@ -100,16 +98,11 @@ function ArticleCards() {
                 'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
             title: 'SatysFi Template on DevContainer',
             category: 'Software',
-        }
+        },
     ];
-
-    const theme = useMantineTheme();
-    const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
     const slides = data.map((item) => (
         <ArticleCard {...item} />
     ));
-
-
 
     return (
         <div>{slides}</div>
@@ -117,58 +110,53 @@ function ArticleCards() {
 }
 
 function Tools() {
-
     return (<>
         <Container size="responsive">
-            <ScrollArea.Autosize offsetScrollbars mah='600' maw='auto' mx="auto">
+            <ScrollArea.Autosize offsetScrollbars mah="600" maw="auto" mx="auto">
                 <Stack>
-                    <Paper shadow="xs" radius="xl" withBorder p="xl" >
+                    <Paper shadow="xs" radius="xl" withBorder p="xl">
                         <Title order={2} style={{ textAlign: 'center' }}>OS</Title>
                         <Divider my="sm" />
                         <SimpleGrid cols={2}>
-                            <i className="devicon-windows8-original" style={{ fontSize: '80px' }}></i>
-                            <i className="devicon-ubuntu-plain" style={{ fontSize: '80px' }}></i>
+                            <i className="devicon-windows8-original" style={{ fontSize: '80px' }} />
+                            <i className="devicon-ubuntu-plain" style={{ fontSize: '80px' }} />
                         </SimpleGrid>
                     </Paper>
-                    <Paper shadow="xs" radius="xl" withBorder p="xl" >
+                    <Paper shadow="xs" radius="xl" withBorder p="xl">
                         <Title order={2} style={{ textAlign: 'center' }}>Editor</Title>
                         <Divider my="sm" />
                         <SimpleGrid cols={2}>
-                            <i className="devicon-intellij-plain" style={{ fontSize: '80px' }}></i>
-                            <i className="devicon-vscode-plain" style={{ fontSize: '80px' }}></i>
+                            <i className="devicon-intellij-plain" style={{ fontSize: '80px' }} />
+                            <i className="devicon-vscode-plain" style={{ fontSize: '80px' }} />
                         </SimpleGrid>
                     </Paper>
-                    <Paper shadow="xs" radius="xl" withBorder p="xl" >
+                    <Paper shadow="xs" radius="xl" withBorder p="xl">
                         <Title order={2} style={{ textAlign: 'center' }}>Programing Language</Title>
                         <Divider my="sm" />
                         <SimpleGrid cols={5}>
-                            <i className="devicon-c-plain" style={{ fontSize: '80px' }}></i>
-                            <i className="devicon-cplusplus-plain" style={{ fontSize: '80px' }}></i>
-                            <i className="devicon-java-plain" style={{ fontSize: '80px' }}></i>
-                            <i className="devicon-typescript-plain" style={{ fontSize: '80px' }}></i>
-                            <i className="devicon-go-original-wordmark" style={{ fontSize: '80px' }}></i>
+                            <i className="devicon-c-plain" style={{ fontSize: '80px' }} />
+                            <i className="devicon-cplusplus-plain" style={{ fontSize: '80px' }} />
+                            <i className="devicon-java-plain" style={{ fontSize: '80px' }} />
+                            <i className="devicon-typescript-plain" style={{ fontSize: '80px' }} />
+                            <i className="devicon-go-original-wordmark" style={{ fontSize: '80px' }} />
                         </SimpleGrid>
                     </Paper>
-                    <Paper shadow="xs" radius="xl" withBorder p="xl" >
+                    <Paper shadow="xs" radius="xl" withBorder p="xl">
                         <Title order={2} style={{ textAlign: 'center' }}>Framework</Title>
                         <Divider my="sm" />
                         <SimpleGrid cols={2}>
-                            <i className="devicon-react-original" style={{ fontSize: '80px' }}></i>
-                            <i className="devicon-svelte-plain" style={{ fontSize: '80px' }}></i>
+                            <i className="devicon-react-original" style={{ fontSize: '80px' }} />
+                            <i className="devicon-svelte-plain" style={{ fontSize: '80px' }} />
                         </SimpleGrid>
                     </Paper>
                 </Stack>
             </ScrollArea.Autosize>
-        </Container >
+        </Container>
 
-    </>);
+            </>);
 }
 
-
-
-
 export default function Components() {
-
     const data = [
         { demo: Home, icon: IconHome, name: 'Home', description: '' },
         {
@@ -193,6 +181,5 @@ export default function Components() {
 
     return (<>
         <DemoTabs data={data} title="My PortFolio" />
-    </>);
-
+            </>);
 }
