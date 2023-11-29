@@ -6,7 +6,7 @@ interface SectionTitleProps extends React.ComponentProps<'h1'> {
     type?: 'white' | 'default';
 }
 
-export function SectionTitle({
+export default function SectionTitle({
     children,
     className,
     type = 'default',

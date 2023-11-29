@@ -1,4 +1,4 @@
-import { Components } from './Components';
+import Components from './Components';
 
 
 export default function HomePage() {

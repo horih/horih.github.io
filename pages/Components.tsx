@@ -1,34 +1,35 @@
-import React from 'react';
 import {
     IconStack2,
     IconMan,
     IconHome,
 } from '@tabler/icons-react';
 
-import { DemoTabs } from './DemoTabs';
-import { ArticleCard } from './ArticleCard';
-import { Container, Center, Title, Text, Stack, Paper, Divider, ScrollArea, SimpleGrid, useMantineTheme, Space }
+import DemoTabs from './DemoTabs';
+import ArticleCard from './ArticleCard';
+import { Container, Title, Text, Stack, Paper, Divider, ScrollArea, SimpleGrid, useMantineTheme, Space, Anchor }
     from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
+
 
 
 function Home() {
     return (<>
         <Container size="responsive">
-            <Center>
-                <Stack>
-                    <Paper shadow="xs" radius="xl" withBorder p="xl" style={{ width: '100%' }}>
-                        <Space h='xl'></Space>
-                        <Title order={1}>Welcome To My Page</Title>
-                        <Space h='xl'></Space>
-                    </Paper>
-                    <Paper shadow="xs" radius="xl" withBorder p="xl" >
-                        <Title order={2} style={{ textAlign: 'center' }}>GitHub</Title>
-                        <Divider my="sm" />
-                    </Paper>
-                </Stack>
-            </Center>
-        </Container>
+            <Stack>
+                <Paper shadow="xs" radius="xl" withBorder p="xl" style={{ width: '100%' }}>
+                    <Space h='xl'></Space>
+                    <Title order={1} style={{ textAlign: 'center' }}>Welcome To My Page</Title>
+                    <Space h='xl'></Space>
+                </Paper>
+                <Paper shadow="xs" radius="xl" withBorder p="xl" >
+                    <Title order={2} style={{ textAlign: 'center' }}>Others...</Title>
+                    <Divider my="sm" />
+                    <Anchor href="https://github.com/horih" target="_blank">
+                        <i className="devicon-github-original colored" style={{ fontSize: '80px' }}></i>
+                    </Anchor>
+                </Paper>
+            </Stack>
+        </Container >
     </>);
 }
 
@@ -72,8 +73,6 @@ function AboutMe() {
         </Container>
     </>);
 }
-
-
 
 function ArticleCards() {
     const data = [
@@ -127,35 +126,35 @@ function Tools() {
                         <Title order={2} style={{ textAlign: 'center' }}>OS</Title>
                         <Divider my="sm" />
                         <SimpleGrid cols={2}>
-                            <i class="devicon-windows8-original" style={{ fontSize: '80px' }}></i>
-                            <i class="devicon-ubuntu-plain" style={{ fontSize: '80px' }}></i>
+                            <i className="devicon-windows8-original" style={{ fontSize: '80px' }}></i>
+                            <i className="devicon-ubuntu-plain" style={{ fontSize: '80px' }}></i>
                         </SimpleGrid>
                     </Paper>
                     <Paper shadow="xs" radius="xl" withBorder p="xl" >
                         <Title order={2} style={{ textAlign: 'center' }}>Editor</Title>
                         <Divider my="sm" />
                         <SimpleGrid cols={2}>
-                            <i class="devicon-intellij-plain" style={{ fontSize: '80px' }}></i>
-                            <i class="devicon-vscode-plain" style={{ fontSize: '80px' }}></i>
+                            <i className="devicon-intellij-plain" style={{ fontSize: '80px' }}></i>
+                            <i className="devicon-vscode-plain" style={{ fontSize: '80px' }}></i>
                         </SimpleGrid>
                     </Paper>
                     <Paper shadow="xs" radius="xl" withBorder p="xl" >
                         <Title order={2} style={{ textAlign: 'center' }}>Programing Language</Title>
                         <Divider my="sm" />
                         <SimpleGrid cols={5}>
-                            <i class="devicon-c-plain" style={{ fontSize: '80px' }}></i>
-                            <i class="devicon-cplusplus-plain" style={{ fontSize: '80px' }}></i>
-                            <i class="devicon-java-plain" style={{ fontSize: '80px' }}></i>
-                            <i class="devicon-typescript-plain" style={{ fontSize: '80px' }}></i>
-                            <i class="devicon-go-original-wordmark" style={{ fontSize: '80px' }}></i>
+                            <i className="devicon-c-plain" style={{ fontSize: '80px' }}></i>
+                            <i className="devicon-cplusplus-plain" style={{ fontSize: '80px' }}></i>
+                            <i className="devicon-java-plain" style={{ fontSize: '80px' }}></i>
+                            <i className="devicon-typescript-plain" style={{ fontSize: '80px' }}></i>
+                            <i className="devicon-go-original-wordmark" style={{ fontSize: '80px' }}></i>
                         </SimpleGrid>
                     </Paper>
                     <Paper shadow="xs" radius="xl" withBorder p="xl" >
                         <Title order={2} style={{ textAlign: 'center' }}>Framework</Title>
                         <Divider my="sm" />
                         <SimpleGrid cols={2}>
-                            <i class="devicon-react-original" style={{ fontSize: '80px' }}></i>
-                            <i class="devicon-svelte-plain" style={{ fontSize: '80px' }}></i>
+                            <i className="devicon-react-original" style={{ fontSize: '80px' }}></i>
+                            <i className="devicon-svelte-plain" style={{ fontSize: '80px' }}></i>
                         </SimpleGrid>
                     </Paper>
                 </Stack>
@@ -166,29 +165,32 @@ function Tools() {
 }
 
 
-const data = [
-    { demo: Home, icon: IconHome, name: 'Home', description: '' },
-    {
-        demo: AboutMe,
-        icon: IconMan,
-        name: 'About Me',
-        description: 'self-introduction',
-    },
-    {
-        demo: Tools,
-        icon: IconStack2,
-        name: 'Tools',
-        description: 'tools I have used',
-    },
-    {
-        demo: ArticleCards,
-        icon: IconStack2,
-        name: 'Projects',
-        description: 'the works I have developed',
-    },
-];
 
-export function Components() {
+
+export default function Components() {
+
+    const data = [
+        { demo: Home, icon: IconHome, name: 'Home', description: '' },
+        {
+            demo: AboutMe,
+            icon: IconMan,
+            name: 'About Me',
+            description: 'self-introduction',
+        },
+        {
+            demo: Tools,
+            icon: IconStack2,
+            name: 'Tools',
+            description: 'tools I have used',
+        },
+        {
+            demo: ArticleCards,
+            icon: IconStack2,
+            name: 'Projects',
+            description: 'the works I have developed',
+        },
+    ];
+
     return (<>
         <DemoTabs data={data} title="My PortFolio" />
     </>);

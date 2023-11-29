@@ -1,6 +1,6 @@
-import { Paper, Text, Title, Button, useMantineTheme } from '@mantine/core';
+import { Paper, Text, Title, Button } from '@mantine/core';
 import classes from './ArticleCard.module.css';
-import { useMediaQuery } from '@mantine/hooks';
+
 
 interface CardProps {
     image: string;
@@ -8,7 +8,7 @@ interface CardProps {
     category: string;
 }
 
-export function ArticleCard({ image, title, category }: CardProps) {
+export default function ArticleCard({ image, title, category }: CardProps) {
     return (
         <Paper shadow="md" p="xl" radius="md" className={classes.card} style={{ backgroundImage: image }}>
             <div>

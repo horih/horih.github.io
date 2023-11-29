@@ -1,8 +1,8 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, FC } from 'react';
 import { Container, Grid, UnstyledButton, Text, Box, rem, useMantineTheme } from '@mantine/core';
 import { IconForms } from '@tabler/icons-react';
 import { useMediaQuery } from '@mantine/hooks';
-import { SectionTitle } from './SectionTitle';
+import SectionTitle from './SectionTitle';
 import classes from './DemoTabs.module.css';
 
 interface DemoTabsProps {
@@ -15,11 +15,12 @@ interface DemoTabsProps {
     }[];
 }
 
-export function DemoTabs({ data, title }: DemoTabsProps) {
+export default function DemoTabs({ data, title }: DemoTabsProps) {
     const [shouldAnimate, setShouldAnimate] = useState(false);
     const animationTimeout = useRef<number>();
-    const [active, setActive] = useState(0);
+    const [active, setActive] = useState<number>(0);
     const theme = useMantineTheme();
+    const [first, setFirst] = useState<boolean>(false);
     const controlSize = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`) ? 60 : 80;
 
     const handleActiveChange = (index: number) => {
@@ -31,7 +32,7 @@ export function DemoTabs({ data, title }: DemoTabsProps) {
         }
     };
 
-    const controls = data.map((item, index) => (
+    const controls = data?.map((item, index) => (
         <UnstyledButton<'button'>
             key={item.name}
             onClick={() => handleActiveChange(index)}
@@ -49,33 +50,63 @@ export function DemoTabs({ data, title }: DemoTabsProps) {
             </div>
         </UnstyledButton>
     ));
+    if (data === undefined) {
+        return (
+            <div className={classes.root}>
+                <Container size={1100}>
+                    <SectionTitle>{title}</SectionTitle>
+                    <Grid gutter={0} mt="md">
+                        <Grid.Col span={{ base: 12, md: 4 }}>
+                            <div className={classes.controls}>
+                                <Box
+                                    className={classes.controlsIndicator}
+                                    style={{
+                                        height: rem(controlSize),
+                                        transform: `translateY(${rem(controlSize * active)})`,
+                                    }}
+                                />
+                                {controls}
+                            </div>
+                        </Grid.Col>
+                        <Grid.Col span={{ base: 12, md: 8 }}>
+                            <div className={classes.demo} data-should-animate={shouldAnimate || undefined}>
+                                {/* <ActiveDemo /> */}
+                            </div>
+                        </Grid.Col>
+                    </Grid>
+                </Container>
+            </div>
+        );
+    } else {
 
-    const ActiveDemo = data[active].demo;
+        const ActiveDemo = data[active].demo;
 
-    return (
-        <div className={classes.root}>
-            <Container size={1100}>
-                <SectionTitle>{title}</SectionTitle>
-                <Grid gutter={0} mt="md">
-                    <Grid.Col span={{ base: 12, md: 4 }}>
-                        <div className={classes.controls}>
-                            <Box
-                                className={classes.controlsIndicator}
-                                style={{
-                                    height: rem(controlSize),
-                                    transform: `translateY(${rem(controlSize * active)})`,
-                                }}
-                            />
-                            {controls}
-                        </div>
-                    </Grid.Col>
-                    <Grid.Col span={{ base: 12, md: 8 }}>
-                        <div className={classes.demo} data-should-animate={shouldAnimate || undefined}>
-                            <ActiveDemo />
-                        </div>
-                    </Grid.Col>
-                </Grid>
-            </Container>
-        </div>
-    );
+        return (
+            <div className={classes.root}>
+                <Container size={1100}>
+                    <SectionTitle>{title}</SectionTitle>
+                    <Grid gutter={0} mt="md">
+                        <Grid.Col span={{ base: 12, md: 4 }}>
+                            <div className={classes.controls}>
+                                <Box
+                                    className={classes.controlsIndicator}
+                                    style={{
+                                        height: rem(controlSize),
+                                        transform: `translateY(${rem(controlSize * active)})`,
+                                    }}
+                                />
+                                {controls}
+                            </div>
+                        </Grid.Col>
+                        <Grid.Col span={{ base: 12, md: 8 }}>
+                            <div className={classes.demo} data-should-animate={shouldAnimate || undefined}>
+                                <ActiveDemo />
+                            </div>
+                        </Grid.Col>
+                    </Grid>
+                </Container>
+            </div>
+        );
+    }
+
 }
