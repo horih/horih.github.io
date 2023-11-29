@@ -8,7 +8,7 @@
   
     @mixin hover {
       box-shadow: var(--mantine-shadow-md);
-      transform: scale(1.02);
+      transform: scale(1.0, 1.1) ;
     }
   
     &::before {

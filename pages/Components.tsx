@@ -1,7 +1,10 @@
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable @next/next/no-img-element */
 import {
     IconStack2,
     IconMan,
     IconHome,
+    IconTools,
 } from '@tabler/icons-react';
 // eslint-disable-next-line max-len
 import { Container, Title, Text, Stack, Paper, Divider, ScrollArea, SimpleGrid, Space, Anchor }
@@ -21,9 +24,10 @@ function Home() {
                 <Paper shadow="xs" radius="xl" withBorder p="xl">
                     <Title order={2} style={{ textAlign: 'center' }}>Others...</Title>
                     <Divider my="sm" />
-                    <Anchor href="https://github.com/horih" target="_blank">
-                        <i className="devicon-github-original colored" style={{ fontSize: '80px' }} />
-                    </Anchor>
+                    <SimpleGrid cols={1}><Anchor href="https://github.com/horih" target="_blank" style={{ textAlign: 'center' }}>
+                        <i className="devicon-github-original colored" style={{ fontSize: '80px', textAlign: 'center' }} />
+                                         </Anchor>
+                    </SimpleGrid>
                 </Paper>
             </Stack>
         </Container>
@@ -76,28 +80,31 @@ function ArticleCards() {
     const data = [
         {
             image:
-                'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
+                'ecmaster.jpg',
             url: 'https://qiita.com/horihi/items/03e9058b88319e505bb2',
-            title: 'EtherCAT Master on STM32H7',
+            title: 'EtherCAT Master',
             category: 'HardWare&SoftWare',
         },
         {
             image:
-                'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
+                'bmp.jpg',
             title: 'Wireless Debugger',
             category: 'HardWare&Software',
+            url: '',
         },
         {
             image:
-                'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
+                'bldc.jpg',
             title: 'BLDC MotorDriver',
             category: 'HardWare&Software',
+            url: '',
         },
         {
             image:
-                'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
-            title: 'SatysFi Template on DevContainer',
+                'https://upload.wikimedia.org/wikipedia/commons/1/1e/SATySFi_logo.svg',
+            title: 'SATySFi DevContainer',
             category: 'Software',
+            url: 'https://github.com/horih/satysfi-devcontainer',
         },
     ];
     const slides = data.map((item) => (
@@ -105,7 +112,9 @@ function ArticleCards() {
     ));
 
     return (
-        <div>{slides}</div>
+        <Container size="responsive">
+            <ScrollArea.Autosize offsetScrollbars mah="600" maw="auto" mx="auto"><Stack>{slides}</Stack></ScrollArea.Autosize>
+        </Container>
     );
 }
 
@@ -118,35 +127,36 @@ function Tools() {
                         <Title order={2} style={{ textAlign: 'center' }}>OS</Title>
                         <Divider my="sm" />
                         <SimpleGrid cols={2}>
-                            <i className="devicon-windows8-original" style={{ fontSize: '80px' }} />
-                            <i className="devicon-ubuntu-plain" style={{ fontSize: '80px' }} />
+                            <i className="devicon-windows8-original" style={{ fontSize: '80px', textAlign: 'center' }} />
+                            <i className="devicon-ubuntu-plain" style={{ fontSize: '80px', textAlign: 'center' }} />
                         </SimpleGrid>
                     </Paper>
                     <Paper shadow="xs" radius="xl" withBorder p="xl">
                         <Title order={2} style={{ textAlign: 'center' }}>Editor</Title>
                         <Divider my="sm" />
                         <SimpleGrid cols={2}>
-                            <i className="devicon-intellij-plain" style={{ fontSize: '80px' }} />
-                            <i className="devicon-vscode-plain" style={{ fontSize: '80px' }} />
+                            <i className="devicon-intellij-plain" style={{ fontSize: '80px', textAlign: 'center' }} />
+                            <i className="devicon-vscode-plain" style={{ fontSize: '80px', textAlign: 'center' }} />
                         </SimpleGrid>
                     </Paper>
                     <Paper shadow="xs" radius="xl" withBorder p="xl">
                         <Title order={2} style={{ textAlign: 'center' }}>Programing Language</Title>
                         <Divider my="sm" />
-                        <SimpleGrid cols={5}>
-                            <i className="devicon-c-plain" style={{ fontSize: '80px' }} />
-                            <i className="devicon-cplusplus-plain" style={{ fontSize: '80px' }} />
-                            <i className="devicon-java-plain" style={{ fontSize: '80px' }} />
-                            <i className="devicon-typescript-plain" style={{ fontSize: '80px' }} />
-                            <i className="devicon-go-original-wordmark" style={{ fontSize: '80px' }} />
+                        <SimpleGrid cols={3}>
+                            <i className="devicon-c-plain" style={{ fontSize: '80px', textAlign: 'center' }} />
+                            <i className="devicon-cplusplus-plain" style={{ fontSize: '80px', textAlign: 'center' }} />
+                            <i className="devicon-java-plain" style={{ fontSize: '80px', textAlign: 'center' }} />
+                            <i className="devicon-typescript-plain" style={{ fontSize: '80px', textAlign: 'center' }} />
+                            <i className="devicon-go-original-wordmark" style={{ fontSize: '80px', textAlign: 'center' }} />
+                            <i className="devicon-rust-plain" style={{ fontSize: '80px', textAlign: 'center' }} />
                         </SimpleGrid>
                     </Paper>
                     <Paper shadow="xs" radius="xl" withBorder p="xl">
                         <Title order={2} style={{ textAlign: 'center' }}>Framework</Title>
                         <Divider my="sm" />
                         <SimpleGrid cols={2}>
-                            <i className="devicon-react-original" style={{ fontSize: '80px' }} />
-                            <i className="devicon-svelte-plain" style={{ fontSize: '80px' }} />
+                            <i className="devicon-react-original" style={{ fontSize: '80px', textAlign: 'center' }} />
+                            <i className="devicon-svelte-plain" style={{ fontSize: '80px', textAlign: 'center' }} />
                         </SimpleGrid>
                     </Paper>
                 </Stack>
@@ -167,7 +177,7 @@ export default function Components() {
         },
         {
             demo: Tools,
-            icon: IconStack2,
+            icon: IconTools,
             name: 'Tools',
             description: 'tools I have used',
         },
