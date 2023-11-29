@@ -1,42 +1,196 @@
 import React from 'react';
 import {
-    IconForms,
-    IconCalendar,
     IconStack2,
-    IconBold,
-    IconNotebook,
-    IconSlideshow,
+    IconMan,
+    IconHome,
 } from '@tabler/icons-react';
 
 import { DemoTabs } from './DemoTabs';
+import { ArticleCard } from './ArticleCard';
+import { Container, Center, Title, Text, Stack, Paper, Divider, ScrollArea, SimpleGrid, useMantineTheme, Space }
+    from '@mantine/core';
+import { useMediaQuery } from '@mantine/hooks';
 
-import { Container } from '@mantine/core';
+
+function Home() {
+    return (<>
+        <Container size="responsive">
+            <Center>
+                <Stack>
+                    <Paper shadow="xs" radius="xl" withBorder p="xl" style={{ width: '100%' }}>
+                        <Space h='xl'></Space>
+                        <Title order={1}>Welcome To My Page</Title>
+                        <Space h='xl'></Space>
+                    </Paper>
+                    <Paper shadow="xs" radius="xl" withBorder p="xl" >
+                        <Title order={2} style={{ textAlign: 'center' }}>GitHub</Title>
+                        <Divider my="sm" />
+                    </Paper>
+                </Stack>
+            </Center>
+        </Container>
+    </>);
+}
+
+function AboutMe() {
+    return (<>
+        <Container size="responsive">
+            <ScrollArea.Autosize offsetScrollbars mah='600' maw='auto' mx="auto">
+                <Stack>
+                    <Paper shadow="xs" radius="xl" withBorder p="xl" >
+                        <Title order={2} style={{ textAlign: 'center' }}>Affication</Title>
+                        <Divider my="sm" />
+                        <Title order={3}>University</Title>
+                        <Text size="xl" style={{ textAlign: 'right' }}>Toyohashi University of Technology</Text>
+                        <Title order={3}>Department</Title>
+                        <Text size="xl" style={{ textAlign: 'right' }}>Computer Science and Engineering</Text>
+                        <Title order={3}>Grade</Title>
+                        <Text size="xl" style={{ textAlign: 'right' }}>Third</Text>
+                        <Title order={3}>Labolatory</Title>
+                        <Text size="xl" style={{ textAlign: 'right' }}>not yet determined</Text>
+                    </Paper>
+                    <Paper shadow="xs" radius="xl" withBorder p="xl" >
+                        <Title order={2} style={{ textAlign: 'center' }}>Skills Acquired</Title>
+                        <Divider my="sm" />
+                        <Title order={3}>TOEIC Listening&Reading IP</Title>
+                        <Text size="xl" style={{ textAlign: 'right' }}>Score 710</Text>
+                        <Title order={3}>EIKEN Grade 2</Title>
+                        <Text size="xl" style={{ textAlign: 'right' }}>Passed</Text>
+                    </Paper>
+                    <Paper shadow="xs" radius="xl" withBorder p="xl" >
+                        <Title order={2} style={{ textAlign: 'center' }}>Achievements</Title>
+                        <Divider my="sm" />
+                        <Title order={3}>NHK学生ロボコン2022</Title>
+                        <Text size="xl" style={{ textAlign: 'right' }}>First Place</Text>
+                        <Title order={3}>NHK学生ロボコン2023</Title>
+                        <Text size="xl" style={{ textAlign: 'right' }}>First Place</Text>
+                        <Title order={3}>ABURobocon2023</Title>
+                        <Text size="xl" style={{ textAlign: 'right' }}>First Place</Text>
+                    </Paper>
+                </Stack>
+            </ScrollArea.Autosize>
+        </Container>
+    </>);
+}
+
+
+
+function ArticleCards() {
+    const data = [
+        {
+            image:
+                'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
+            url: 'https://qiita.com/horihi/items/03e9058b88319e505bb2',
+            title: 'EtherCAT Master on STM32H7',
+            category: 'HardWare&SoftWare',
+        },
+        {
+            image:
+                'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
+            title: 'Wireless Debugger',
+            category: 'HardWare&Software',
+        },
+        {
+            image:
+                'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
+            title: 'BLDC MotorDriver',
+            category: 'HardWare&Software',
+        },
+        {
+            image:
+                'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
+            title: 'SatysFi Template on DevContainer',
+            category: 'Software',
+        }
+    ];
+
+    const theme = useMantineTheme();
+    const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
+    const slides = data.map((item) => (
+        <ArticleCard {...item} />
+    ));
+
+
+
+    return (
+        <div>{slides}</div>
+    );
+}
+
+function Tools() {
+
+    return (<>
+        <Container size="responsive">
+            <ScrollArea.Autosize offsetScrollbars mah='600' maw='auto' mx="auto">
+                <Stack>
+                    <Paper shadow="xs" radius="xl" withBorder p="xl" >
+                        <Title order={2} style={{ textAlign: 'center' }}>OS</Title>
+                        <Divider my="sm" />
+                        <SimpleGrid cols={2}>
+                            <i class="devicon-windows8-original" style={{ fontSize: '80px' }}></i>
+                            <i class="devicon-ubuntu-plain" style={{ fontSize: '80px' }}></i>
+                        </SimpleGrid>
+                    </Paper>
+                    <Paper shadow="xs" radius="xl" withBorder p="xl" >
+                        <Title order={2} style={{ textAlign: 'center' }}>Editor</Title>
+                        <Divider my="sm" />
+                        <SimpleGrid cols={2}>
+                            <i class="devicon-intellij-plain" style={{ fontSize: '80px' }}></i>
+                            <i class="devicon-vscode-plain" style={{ fontSize: '80px' }}></i>
+                        </SimpleGrid>
+                    </Paper>
+                    <Paper shadow="xs" radius="xl" withBorder p="xl" >
+                        <Title order={2} style={{ textAlign: 'center' }}>Programing Language</Title>
+                        <Divider my="sm" />
+                        <SimpleGrid cols={5}>
+                            <i class="devicon-c-plain" style={{ fontSize: '80px' }}></i>
+                            <i class="devicon-cplusplus-plain" style={{ fontSize: '80px' }}></i>
+                            <i class="devicon-java-plain" style={{ fontSize: '80px' }}></i>
+                            <i class="devicon-typescript-plain" style={{ fontSize: '80px' }}></i>
+                            <i class="devicon-go-original-wordmark" style={{ fontSize: '80px' }}></i>
+                        </SimpleGrid>
+                    </Paper>
+                    <Paper shadow="xs" radius="xl" withBorder p="xl" >
+                        <Title order={2} style={{ textAlign: 'center' }}>Framework</Title>
+                        <Divider my="sm" />
+                        <SimpleGrid cols={2}>
+                            <i class="devicon-react-original" style={{ fontSize: '80px' }}></i>
+                            <i class="devicon-svelte-plain" style={{ fontSize: '80px' }}></i>
+                        </SimpleGrid>
+                    </Paper>
+                </Stack>
+            </ScrollArea.Autosize>
+        </Container >
+
+    </>);
+}
 
 
 const data = [
-    { demo: Container, icon: IconForms, name: 'Inputs', description: '20+ input components' },
+    { demo: Home, icon: IconHome, name: 'Home', description: '' },
     {
-        demo: Container,
-        icon: IconCalendar,
-        name: 'Date pickers',
-        description: 'Calendar, date pickers, time inputs',
+        demo: AboutMe,
+        icon: IconMan,
+        name: 'About Me',
+        description: 'self-introduction',
     },
     {
-        demo: Container,
+        demo: Tools,
         icon: IconStack2,
-        name: 'Overlays & Navigation',
-        description: 'Modal, HoverCard, Tabs, Stepper',
+        name: 'Tools',
+        description: 'tools I have used',
     },
-    { demo: Container, icon: IconNotebook, name: 'Content', description: 'Accordion, Timeline' },
     {
-        demo: Container,
-        icon: IconBold,
-        name: 'Rich text editor',
-        description: 'Tiptap based rich text editor',
+        demo: ArticleCards,
+        icon: IconStack2,
+        name: 'Projects',
+        description: 'the works I have developed',
     },
-    { demo: Container, icon: IconSlideshow, name: 'Carousel', description: 'Embla based carousel' },
 ];
 
 export function Components() {
-    return <DemoTabs data={data} title="100+ components" />;
+    return (<>
+        <DemoTabs data={data} title="My PortFolio" />
+    </>);
+
 }

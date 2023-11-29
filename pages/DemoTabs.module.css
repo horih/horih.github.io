@@ -12,7 +12,7 @@
   
   .root {
     padding-top: rem(100px);
-    padding-bottom: rem(100px);
+    padding-bottom: rem(100px); 
     background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-7));
   
     @media (max-width: $mantine-breakpoint-sm) {

@@ -14,6 +14,7 @@ export default function App({ Component, pageProps }: AppProps) {
           content="minimum-scale=1, initial-scale=1, width=device-width, user-scalable=no"
         />
         <link rel="shortcut icon" href="/favicon.svg" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@master/devicon.min.css"></link>
       </Head>
       <Component {...pageProps} />
     </MantineProvider>
