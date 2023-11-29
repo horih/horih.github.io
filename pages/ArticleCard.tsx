@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
-import { Paper, Text, Title, Button, AspectRatio, Grid, SimpleGrid, rem, Anchor } from '@mantine/core';
+import { Paper, Text, Title, AspectRatio, Grid, SimpleGrid, rem, Anchor } from '@mantine/core';
 import classes from './ArticleCard.module.css';
 
 interface CardProps {
