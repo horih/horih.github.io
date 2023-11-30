@@ -84,6 +84,7 @@ function ArticleCards() {
             url: 'https://qiita.com/horihi/items/03e9058b88319e505bb2',
             title: 'EtherCAT Master',
             category: 'HardWare&SoftWare',
+            desp: 'EC Master based SOEM',
         },
         {
             image:
@@ -91,6 +92,7 @@ function ArticleCards() {
             title: 'Wireless Debugger',
             category: 'HardWare&Software',
             url: '',
+            desp: 'wireless debugger based BMP',
         },
         {
             image:
@@ -98,6 +100,7 @@ function ArticleCards() {
             title: 'BLDC MotorDriver',
             category: 'HardWare&Software',
             url: '',
+            desp: 'motordriver based simpleFOC',
         },
         {
             image:
@@ -105,6 +108,7 @@ function ArticleCards() {
             title: 'SATySFi DevContainer',
             category: 'Software',
             url: 'https://github.com/horih/satysfi-devcontainer',
+            desp: 'DockerImage with Language Server',
         },
     ];
     const slides = data.map((item) => (

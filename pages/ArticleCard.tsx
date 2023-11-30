@@ -8,9 +8,10 @@ interface CardProps {
     title: string;
     category: string;
     url: string;
+    desp: string;
 }
 
-export default function ArticleCard({ image, title, category, url }: CardProps) {
+export default function ArticleCard({ image, title, category, url, desp }: CardProps) {
     const PRIMARY_COL_HEIGHT = rem(100);
     const SECONDARY_COL_HEIGHT = `calc(${PRIMARY_COL_HEIGHT} / 2 - var(--mantine-spacing-md) / 2)`;
     if (url === '') {
@@ -30,6 +31,13 @@ export default function ArticleCard({ image, title, category, url }: CardProps) 
                         </Grid.Col>
                         <Grid.Col span={6}>
                             <div style={{ height: SECONDARY_COL_HEIGHT }} />
+                        </Grid.Col>
+                        <Grid.Col span={6}>
+                            <div style={{ height: SECONDARY_COL_HEIGHT }}>
+                            <Text className={classes.category} size="xs">
+                            {desp}
+                            </Text>
+                            </div>
                         </Grid.Col>
                     </Grid>
                     <div style={{ height: PRIMARY_COL_HEIGHT }}>
@@ -56,12 +64,19 @@ export default function ArticleCard({ image, title, category, url }: CardProps) 
                             </Title>
                         </div>
                     </Grid.Col>
-                    <Grid.Col>
+                    <Grid.Col span={6}>
                         <div style={{ height: SECONDARY_COL_HEIGHT }}>
                             <Anchor href={url} target="_blank">
                                 ToLink...
                             </Anchor>
                         </div>
+                    </Grid.Col>
+                    <Grid.Col span={6}>
+                    <div style={{ height: SECONDARY_COL_HEIGHT }}>
+                            <Text className={classes.category} size="xs">
+                            {desp}
+                            </Text>
+                    </div>
                     </Grid.Col>
                 </Grid>
                 <div style={{ height: PRIMARY_COL_HEIGHT }}>
